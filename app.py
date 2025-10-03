@@ -92,6 +92,10 @@ def _secure_parse(cmd: str):
             mapped.append(tok)
     return mapped
 
+@app.get("/api/health")
+def health():
+    return jsonify({"status": "ok"}), 200
+
 if Tool is not None:
     class SafeShellTool(Tool):
         name = "safe_shell"
